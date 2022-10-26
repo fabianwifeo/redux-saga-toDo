@@ -12,6 +12,7 @@ function TaskContainer(){
                     <Task
                     task={task}
                     key={index}
+                    index={index}
                     />
                 )
             })}

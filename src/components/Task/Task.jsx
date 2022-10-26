@@ -1,10 +1,23 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch } from 'react-redux';
 
 function Task(props){
+
+    const dispatch = useDispatch()
+
+    function deleteTask(){
+        const index = props.index;
+        dispatch({
+            type: 'DELETE_TASK',
+            index: index
+        })
+    }
+
     return (
         <div className="task">
-            <FontAwesomeIcon 
+            <FontAwesomeIcon
+            onClick={() => deleteTask()} 
             className='task-icon delete-icon'
             icon={faXmark} />
             <FontAwesomeIcon 
