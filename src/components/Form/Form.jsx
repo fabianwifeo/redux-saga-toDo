@@ -32,7 +32,6 @@ function Form(){
                 value={newTask}
                 onInput={(e) => {
                     setNewTask(e.target.value);
-                    console.log(newTask);
                 }}
                 />
                 <button 
