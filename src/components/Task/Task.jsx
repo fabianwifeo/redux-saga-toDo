@@ -15,6 +15,17 @@ function Task(props){
         })
     }
 
+    function moveTask(direction){
+        let index = props.index;
+        let newIndex = direction === 'left' ? index - 1 : index + 1;
+        dispatch({
+            type: 'MOVE_TASK',
+            payload: props.task,
+            index,
+            newIndex
+        })
+    }
+
     return (
         <div className="task">
             <FontAwesomeIcon
@@ -23,12 +34,14 @@ function Task(props){
             icon={faXmark} />
             
             {props.index !== 0 &&
-                <FontAwesomeIcon 
+                <FontAwesomeIcon
+                onClick={() => moveTask('left')} 
                 className='task-icon left-icon'
                 icon={faArrowLeft} />
             }
             {props.index < tasks.length -1 &&
-                <FontAwesomeIcon 
+                <FontAwesomeIcon
+                onClick={() => moveTask('right')}  
                 className='task-icon right-icon'
                 icon={faArrowRight} />
             }
