@@ -1,9 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 function Task(props){
 
+    const tasks = useSelector(state => state.tasks)
     const dispatch = useDispatch()
 
     function deleteTask(){
@@ -20,12 +21,17 @@ function Task(props){
             onClick={() => deleteTask()} 
             className='task-icon delete-icon'
             icon={faXmark} />
-            <FontAwesomeIcon 
-            className='task-icon left-icon'
-            icon={faArrowLeft} />
-            <FontAwesomeIcon 
-            className='task-icon right-icon'
-            icon={faArrowRight} />
+            
+            {props.index !== 0 &&
+                <FontAwesomeIcon 
+                className='task-icon left-icon'
+                icon={faArrowLeft} />
+            }
+            {props.index < tasks.length -1 &&
+                <FontAwesomeIcon 
+                className='task-icon right-icon'
+                icon={faArrowRight} />
+            }
             <p className='task-content'>{props.task}</p>
         </div>
     )
