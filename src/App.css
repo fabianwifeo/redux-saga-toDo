@@ -40,7 +40,7 @@ form {
 }
 
 .addTask-input {
-    width: calc(100% - 50px);
+    width: 100%;
     height: 30px;
     border-radius: 15px;
     border: none;
@@ -51,14 +51,16 @@ form {
 
 
 .addTask-button {
-    background-color: #6C757D;
+    position: absolute;
+    right: 0px;
+    background-color: transparent;
     height: 30px;
     width: 30px;
     color: white;
     font-size: 20px;
     border-radius: 15px;
-    cursor: pointer;
     border: none;
+    cursor: pointer;
     transition: all 0.2s ease;
 }
 
@@ -92,7 +94,7 @@ form {
     position: relative;
     width: 250px;
     height: 200px;
-    background-color: #000000;
+    background-color: #6C757D;
     border-radius: 5px;
     margin: 0 auto;
 }
@@ -151,9 +153,5 @@ form {
 
     .tasksContainer {
         grid-template-columns: 1fr;
-    }
-
-    .task-icon {
-        transform: rotate(90deg);
     }
 }
