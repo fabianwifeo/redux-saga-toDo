@@ -30,6 +30,7 @@ h1 {
 }
 
 form {
+    position: relative;
     width: 90%;
     max-width: 900px;
     margin: 30px auto 30px auto;
@@ -63,6 +64,13 @@ form {
 .addTask-button:hover, .addTask-button:focus {
     background-color: #8585FF;
     color: white;
+}
+
+.error-message {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    color: crimson;
 }
 
 .tasksContainer {
