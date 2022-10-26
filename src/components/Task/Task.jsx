@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
-function Task(){
+function Task(props){
     return (
         <div className="task">
             <FontAwesomeIcon 
@@ -13,7 +13,7 @@ function Task(){
             <FontAwesomeIcon 
             className='task-icon right-icon'
             icon={faArrowRight} />
-            <p className='task-content'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+            <p className='task-content'>{props.task}</p>
         </div>
     )
 }

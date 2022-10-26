@@ -1,6 +1,8 @@
+import { useSelector } from 'react-redux';
+
 function Counter(){
 
-    let uncompletedTasks = 0;
+    const uncompletedTasks = useSelector(state => state.tasks.length)
 
     return (
         <div>

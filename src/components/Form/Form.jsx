@@ -1,11 +1,13 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 function Form(){
 
     const [newTask, setNewTask] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const dispatch = useDispatch();
 
     const clearInput = () => {
         setNewTask('');
@@ -18,7 +20,10 @@ function Form(){
             return;
         }
         setErrorMessage('');
-        console.log(newTask);
+        dispatch({
+            type: 'ADD_TASK',
+            payload: newTask
+        })
         clearInput();
     }
 
