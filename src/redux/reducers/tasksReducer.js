@@ -18,6 +18,9 @@ function taskReducer(state = initialState, action){
             newArray.splice(action.index, 1);
             newArray.splice(action.newIndex, 0, action.payload)
             return {...state, tasks : newArray};
+        
+        case 'DELETE_ALL_TASKS' :
+            return {...state, tasks : []}
             
         default : 
             return state
