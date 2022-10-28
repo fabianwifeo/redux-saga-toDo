@@ -1,9 +1,16 @@
 const initialState = {
-    tasks : []
+    tasks : [],
+    getTasksErrorMessage : ''
 }
 
 function taskReducer(state = initialState, action){
     switch (action.type){
+
+        case 'GET_REMOTE_TASKS_SUCCEEDED' :
+            return {...state, tasks: action.payload}
+
+        case 'GET_REMOTE_TASKS_FAILED' :
+            return {...state, getTasksErrorMessage: 'An error occured - failed to fetch'}
 
         case 'ADD_TASK' :
             return {...state, tasks : [...state.tasks, action.payload]}
@@ -21,7 +28,7 @@ function taskReducer(state = initialState, action){
         
         case 'DELETE_ALL_TASKS' :
             return {...state, tasks : []}
-            
+
         default : 
             return state
     }

@@ -3,19 +3,25 @@ import { useSelector } from 'react-redux';
 
 function TaskContainer(){
 
-    const tasks = useSelector(state => state.tasks)
+    const tasks = useSelector(state => state.tasks);
+    const apiErrorMessage = useSelector(state => state.getTasksErrorMessage);
 
     return (
-        <div className="tasksContainer">
-            {tasks.map((task, index) => {
-                return (
-                    <Task
-                    task={task}
-                    key={index}
-                    index={index}
-                    />
-                )
-            })}
+        <div>
+            {apiErrorMessage !== '' &&
+                <h2 className='apiError-message'>{apiErrorMessage}</h2>
+            }
+            <div className="tasksContainer">
+                {tasks.map((task, index) => {
+                    return (
+                        <Task
+                        task={task.task}
+                        key={task._id}
+                        index={index}
+                        />
+                    )
+                })}
+            </div>
         </div>
     )
 }

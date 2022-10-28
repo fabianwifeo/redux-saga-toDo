@@ -146,6 +146,13 @@ form {
     color: #8585FF;
 }
 
+.apiError-message {
+    text-align: center;
+    color: crimson;
+    padding: 50px;
+    font-size: 25px;
+}
+
 @media screen and (max-width: 992px){
     .tasksContainer {
         grid-template-columns: 1fr 1fr;
