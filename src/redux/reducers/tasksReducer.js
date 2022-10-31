@@ -2,7 +2,8 @@ const initialState = {
     tasks : [],
     getTasksErrorMessage : '',
     addTaskErrorMessage : '',
-    deleteAllTasksErrorMessage: ''
+    deleteAllTasksErrorMessage: '',
+    deleteTaskErrorMessage: ''
 }
 
 function taskReducer(state = initialState, action){
@@ -26,11 +27,13 @@ function taskReducer(state = initialState, action){
         case 'DELETE_ALL_TASKS_FAILED' :
             return {...state, deleteAllTasksErrorMessage: 'An error occured - failed to delete all tasks'}
 
-        case 'DELETE_TASK':
-            let firstPart = state.tasks.slice(0, action.index);
-            let secondPart = state.tasks.slice(action.index + 1);
-            return {...state, tasks : firstPart.concat(secondPart)}
+        case 'DELETE_TASK_SUCCEEDED':
+            let filteredTasks = state.tasks.filter((task) => task._id !== action.id);
+            return {...state, tasks: [...filteredTasks]}
 
+        case 'DELETE_TASK_FAILED' :
+            return {...state, deleteTaskErrorMessage: 'An error occured - failed to delete the tasks'}
+            
         case 'MOVE_TASK' :
             let newArray = [...state.tasks]
             newArray.splice(action.index, 1);

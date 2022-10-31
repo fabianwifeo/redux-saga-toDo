@@ -25,7 +25,7 @@ function Form(){
             type: 'ADD_TASK_STARTED',
             payload: {
                 task: newTask,
-                id: uuidv4()
+                _id: uuidv4()
             }
         })
         clearInput();

@@ -8,10 +8,9 @@ function Task(props){
     const dispatch = useDispatch()
 
     function deleteTask(){
-        const index = props.index;
         dispatch({
-            type: 'DELETE_TASK',
-            index: index
+            type: 'DELETE_TASK_STARTED',
+            id: props.id
         })
     }
 

@@ -6,11 +6,10 @@ export function* addTaskSaga(action){
     try {
         yield put({type: 'ADD_TASK_SUCCEEDED', payload: action.payload})
         yield call(addTask, action.payload)
-        console.log('Add task succeeded')
+        console.log('Add task action succeeded', action.payload)
     }
     catch (error){
-        console.log('Add task failed:', error)
+        console.log('Add task action failed:', error)
         yield put({type: 'ADD_TASK_FAILED'})
-        console.log('Add task failed')
     }
 }

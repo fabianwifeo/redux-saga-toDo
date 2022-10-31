@@ -6,11 +6,10 @@ export function* deleteAllTasksSaga(){
     try {
         yield put({type: 'DELETE_ALL_TASKS_SUCCEEDED'})
         yield call(deleteAllTasks)
-        console.log('Delete all tasks succeeded')
+        console.log('Delete all tasks action succeeded')
     }
     catch (error){
-        console.log('Add task failed:', error)
+        console.log('Delete all tasks action failed:', error)
         yield put({type: 'DELETE_ALL_TASKS_FAILED'})
-        console.log('delete all tasks failed')
     }
 }
