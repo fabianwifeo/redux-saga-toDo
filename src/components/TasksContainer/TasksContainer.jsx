@@ -1,5 +1,6 @@
 import Task from '../Task/Task';
 import { useSelector } from 'react-redux';
+import { v4 as uuidv4 } from "uuid";
 
 function TaskContainer(){
 
@@ -16,7 +17,7 @@ function TaskContainer(){
                     return (
                         <Task
                         task={task.task}
-                        key={task._id}
+                        key={uuidv4()}
                         index={index}
                         id={task._id}
                         />
