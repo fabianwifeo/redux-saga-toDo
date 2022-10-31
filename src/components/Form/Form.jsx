@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-// import { v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from "uuid";
 
 function Form(){
 
@@ -22,8 +22,11 @@ function Form(){
         }
         setErrorMessage('');
         dispatch({
-            type: 'ADD_TASK',
-            payload: {task: newTask}
+            type: 'ADD_TASK_STARTED',
+            payload: {
+                task: newTask,
+                _id: uuidv4()
+            }
         })
         clearInput();
     }

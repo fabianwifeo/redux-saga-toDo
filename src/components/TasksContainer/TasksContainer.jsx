@@ -18,6 +18,7 @@ function TaskContainer(){
                         task={task.task}
                         key={task._id}
                         index={index}
+                        id={task._id}
                         />
                     )
                 })}

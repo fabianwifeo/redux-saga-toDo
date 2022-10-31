@@ -1,6 +1,8 @@
 const initialState = {
     tasks : [],
-    getTasksErrorMessage : ''
+    getTasksErrorMessage : '',
+    addTaskErrorMessage : '',
+    deleteAllTasksErrorMessage: ''
 }
 
 function taskReducer(state = initialState, action){
@@ -12,8 +14,17 @@ function taskReducer(state = initialState, action){
         case 'GET_REMOTE_TASKS_FAILED' :
             return {...state, getTasksErrorMessage: 'An error occured - failed to fetch'}
 
-        case 'ADD_TASK' :
+        case 'ADD_TASK_SUCCEEDED' :
             return {...state, tasks : [...state.tasks, action.payload]}
+
+        case 'ADD_TASK_FAILED' : 
+            return {...state, addTaskErrorMessage: 'An error occured - failed to add task'}
+
+        case 'DELETE_ALL_TASKS_SUCCEEDED' :
+            return {...state, tasks : []}
+
+        case 'DELETE_ALL_TASKS_FAILED' :
+            return {...state, deleteAllTasksErrorMessage: 'An error occured - failed to delete all tasks'}
 
         case 'DELETE_TASK':
             let firstPart = state.tasks.slice(0, action.index);
@@ -26,9 +37,6 @@ function taskReducer(state = initialState, action){
             newArray.splice(action.newIndex, 0, action.payload)
             return {...state, tasks : newArray};
         
-        case 'DELETE_ALL_TASKS' :
-            return {...state, tasks : []}
-
         default : 
             return state
     }

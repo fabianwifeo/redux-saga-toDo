@@ -7,7 +7,7 @@ function Header(){
 
     const clearList = () => {
         dispatch({
-           type: 'DELETE_ALL_TASKS' 
+           type: 'DELETE_ALL_TASKS_STARTED' 
         })
     }
 
