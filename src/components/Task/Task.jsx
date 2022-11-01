@@ -15,11 +15,14 @@ function Task(props){
     }
 
     function moveTask(direction){
-        let index = props.index;
+        let index = props.index
         let newIndex = direction === 'left' ? index - 1 : index + 1;
         dispatch({
             type: 'MOVE_TASK',
-            payload: props.task,
+            payload: {
+                task : props.task,
+                _id : props.id
+            },
             index,
             newIndex
         })
