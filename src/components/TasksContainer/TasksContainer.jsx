@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 function TaskContainer(){
 
     const tasks = useSelector(state => state.tasks);
-    const apiErrorMessage = useSelector(state => state.getTasksErrorMessage);
+    const apiErrorMessage = useSelector(state => state.errorMessage);
 
     return (
         <div>

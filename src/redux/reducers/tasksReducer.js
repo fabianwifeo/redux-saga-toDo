@@ -1,9 +1,6 @@
 const initialState = {
     tasks : [],
-    getTasksErrorMessage : '',
-    addTaskErrorMessage : '',
-    deleteAllTasksErrorMessage: '',
-    deleteTaskErrorMessage: ''
+    errorMessage : '',
 }
 
 function taskReducer(state = initialState, action){
@@ -13,26 +10,26 @@ function taskReducer(state = initialState, action){
             return {...state, tasks: action.payload}
 
         case 'GET_REMOTE_TASKS_FAILED' :
-            return {...state, getTasksErrorMessage: 'An error occured - failed to fetch'}
+            return {...state, errorMessage: 'An error occured - failed to get tasks'}
 
         case 'ADD_TASK_SUCCEEDED' :
             return {...state, tasks : [...state.tasks, action.payload]}
 
         case 'ADD_TASK_FAILED' : 
-            return {...state, addTaskErrorMessage: 'An error occured - failed to add task'}
+            return {...state, errorMessage: 'An error occured - failed to add task'}
 
         case 'DELETE_ALL_TASKS_SUCCEEDED' :
             return {...state, tasks : []}
 
         case 'DELETE_ALL_TASKS_FAILED' :
-            return {...state, deleteAllTasksErrorMessage: 'An error occured - failed to delete all tasks'}
+            return {...state, errorMessage: 'An error occured - failed to delete all tasks'}
 
         case 'DELETE_TASK_SUCCEEDED':
             let filteredTasks = state.tasks.filter((task) => task._id !== action.id);
             return {...state, tasks: [...filteredTasks]}
 
         case 'DELETE_TASK_FAILED' :
-            return {...state, deleteTaskErrorMessage: 'An error occured - failed to delete the tasks'}
+            return {...state, errorMessage: 'An error occured - failed to delete the task'}
             
         case 'MOVE_TASK' :
             let newArray = [...state.tasks]

@@ -4,8 +4,8 @@ const addTask = (task) => fetch('http://localhost:4000/api/tasks', {method: 'POS
 
 export function* addTaskSaga(action){
     try {
-        yield put({type: 'ADD_TASK_SUCCEEDED', payload: action.payload})
         yield call(addTask, action.payload)
+        yield put({type: 'ADD_TASK_SUCCEEDED', payload: action.payload})
         console.log('Add task action succeeded', action.payload)
     }
     catch (error){

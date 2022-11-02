@@ -4,8 +4,8 @@ const deleteAllTasks = () => fetch('http://localhost:4000/api/tasks', {method: '
 
 export function* deleteAllTasksSaga(){
     try {
-        yield put({type: 'DELETE_ALL_TASKS_SUCCEEDED'})
         yield call(deleteAllTasks)
+        yield put({type: 'DELETE_ALL_TASKS_SUCCEEDED'})
         console.log('Delete all tasks action succeeded')
     }
     catch (error){
